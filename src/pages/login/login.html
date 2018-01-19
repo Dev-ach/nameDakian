@@ -1,0 +1,49 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/logo.svg">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+    <ion-item dir="rtl">
+      <ion-label stacked dir="rtl">البريد الإلكتروني</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="البريد الإلكتروني" [class.invalid]="!loginForm.controls.email.valid && blur" dir="rtl">
+      </ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid &&
+        loginForm.controls.email.dirty" dir="rtl">
+      <p dir="rtl">رجاء قم بإدخال بريد الكتروني صحيح</p>
+    </ion-item>
+    <ion-item dir="rtl">
+      <ion-label stacked dir="rtl">كلمة السر</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="كلمة السر" [class.invalid]="!loginForm.controls.password.valid && blur" dir="rtl">
+      </ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid
+        && loginForm.controls.password.dirty" dir="rtl">
+      <p dir="rtl">تحتاج كلمة المرور إلى أكثر من 6 أحرف</p>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="!loginForm.valid">
+          تسجيل الدخول
+        </button>
+  </form>
+  <button ion-button block clear (click)="goToSignup()">
+          إنشاء حساب جديد
+        </button>
+  <button ion-button block clear (click)="goToResetPassword()">
+          لقد نسيت كلمة السر :(
+        </button>
+
+</ion-content>

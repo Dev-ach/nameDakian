@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Signup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <img src="assets/img/banner.jpg" />
+  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+    <ion-item>
+      <ion-label stacked>البريد الإلكتروني</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="البريد الإلكتروني" [class.invalid]="!signupForm.controls.email.valid && blur">
+      </ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid
+    && signupForm.controls.email.dirty">
+      <p>رجاء قم بإدخال بريد الكتروني صحيح</p>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>كلمة السر</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="كلمة السر" [class.invalid]="!signupForm.controls.password.valid && blur">
+      </ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid &&
+    signupForm.controls.password.dirty">
+      <p>تحتاج كلمة المرور إلى أكثر من 6 أحرف</p>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="!signupForm.valid">
+        إنشاء حساب
+    </button>
+  </form>
+</ion-content>

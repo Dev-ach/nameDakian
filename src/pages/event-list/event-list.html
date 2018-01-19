@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>EventList</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list dir="rtl">
+    <div *ngFor="let post of postsList" >
+          <h3>{{post?.name}}</h3>
+          <div>
+            {{post?.date| date:'dd/MM/y'}}
+          </div>
+          <div>
+            {{post?.content |  slice:0:300}} <button ion-button clear (click)="goToPostDetail(post.id)">
+              تابع القراءة...
+            </button>
+          </div>
+    </div>
+  </ion-list>
+
+
+
+
+</ion-content>

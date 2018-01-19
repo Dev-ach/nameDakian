@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home Page</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goToProfile()">
+        <ion-icon name="person"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list dir="rtl">
+    <div *ngFor="let post of postsList">
+      <h3>{{post?.name}}</h3>
+      <div>
+        {{post?.date| date:'dd/MM/y'}}
+      </div>
+      <div>
+        {{post?.content | slice:0:300}}
+        <button ion-button clear (click)="goToPostDetail(post.id)">
+          تابع القراءة...
+        </button>
+      </div>
+      <div>
+        <button (click)="like(post.id)" ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{post?.lick}} Likes</div>
+        </button>
+      </div>
+    </div>
+  </ion-list>
+  <ion-fab bottom left>
+    <button ion-fab>Share</button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="goToCreate()"><ion-icon name="add-circle"></ion-icon></button>
+      <button ion-fab (click)="goToList()">Twitter</button>
+    </ion-fab-list>
+  </ion-fab>
+  <!--<button ion-button block color="primary" (click)="goToCreate()">
+    إنشاء معلومات جديدة
+  </button>
+  <button ion-button block color="primary" (click)="goToList()">
+    عرض معلوماتك
+  </button>-->
+</ion-content>

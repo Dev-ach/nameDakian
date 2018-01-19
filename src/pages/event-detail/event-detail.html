@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card  dir="rtl">
+    <ion-card-header>
+      {{currentEvent?.name}}
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <strong>${{currentEvent?.content}}</strong>
+      </p>
+      <p>
+        <strong>{{currentEvent?.date | date:'dd/MM/y'}}</strong>
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

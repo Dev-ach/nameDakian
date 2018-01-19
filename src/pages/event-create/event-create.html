@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>معلومة جديدة</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-item dir="rtl">
+    <ion-label stacked>عنوان المعلومة</ion-label>
+    <ion-input [(ngModel)]="eventName" type="text" >
+    </ion-input>
+  </ion-item>
+  <ion-item dir="rtl">
+    <ion-label stacked>محتوى المعلومة</ion-label>
+    <ion-textarea [(ngModel)]="eventContent">
+    </ion-textarea>
+  </ion-item>
+  <ion-item dir="rtl">
+    <ion-label stacked>المصدر</ion-label>
+    <ion-input [(ngModel)]="eventSource" type="text">
+    </ion-input>
+  </ion-item>
+  <button ion-button block (click)="createPost(eventName, eventContent, eventSource)">
+    انشاء
+  </button>
+</ion-content>
